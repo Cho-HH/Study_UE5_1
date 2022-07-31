@@ -1,11 +1,14 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "ABCharacter.h"
+#include "ABAnimInstance.h"
+#include <cassert>
 
 // Sets default values
 AABCharacter::AABCharacter()
 	: mArmLengthSpeed(3.f)
 	, mArmRotationSpeed(5.f)
+	, bAttacking(false)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -35,6 +38,8 @@ AABCharacter::AABCharacter()
 	}
 
 	SetControlMode(mCurrentConotrol);
+
+	//GetCharacterMovement()->JumpZVelocity = 800.f;
 }
 
 // Called when the game starts or when spawned
@@ -123,6 +128,9 @@ void AABCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &AABCharacter::Turn);	
 
 	PlayerInputComponent->BindAction(TEXT("ViewChange"), EInputEvent::IE_Pressed, this, &AABCharacter::ViewChange);
+
+	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &AABCharacter::Attack);
 }
 
 void AABCharacter::UpDown(float NewAxisValue)
@@ -167,7 +175,6 @@ void AABCharacter::LookUp(float NewAxisValue)
 	default:
 		break;
 	}
-	
 }
 
 void AABCharacter::Turn(float NewAxisValue)
@@ -198,4 +205,30 @@ void AABCharacter::ViewChange()
 	default:
 		break;
 	}
+}
+
+void AABCharacter::PostInitializeComponents()
+{
+	Super::PostInitializeComponents();
+	mABAnim = Cast<UABAnimInstance>(GetMesh()->GetAnimInstance());
+	assert(mABAnim != nullptr);
+
+	mABAnim->OnMontageEnded.AddDynamic(this, &AABCharacter::OnAttackMontageEnded);
+}
+
+void AABCharacter::Attack()
+{
+	if (bAttacking)
+	{
+		return;
+	}
+
+	mABAnim->PlayAttackMontage();
+	bAttacking = true;
+}
+
+void AABCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+	assert(bAttacking);
+	bAttacking = false;
 }
