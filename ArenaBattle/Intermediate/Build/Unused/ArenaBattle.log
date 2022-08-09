@@ -3,22 +3,21 @@
   Using 'git status' to determine working set for adaptive non-unity build (C:\Users\82106\Documents\Study_UE5_1).
   Parsing headers for ArenaBattleEditor
     Running UnrealHeaderTool "C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\ArenaBattle.uproject" "C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\ArenaBattleEditor\Development\ArenaBattleEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\82106\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for ArenaBattleEditor in 1.8024947 seconds
+  Reflection code generated for ArenaBattleEditor in 2.4911978 seconds
   Building ArenaBattleEditor...
   Using Visual Studio 2022 14.32.31332 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Determining max actions to execute in parallel (6 physical cores, 12 logical cores)
     Executing up to 6 processes, one per physical core
-    Requested 1.5 GB free memory per action, 6.53 GB available: limiting max parallel actions to 4
-  Building 8 actions with 4 processes...
-  [1/8] Compile ArenaBattle.init.gen.cpp
-  [2/8] Compile ABCharacter.gen.cpp
-  [3/8] Compile ABAnimInstance.cpp
-  [4/8] Compile ABCharacter.cpp
-  [5/8] Compile ABGameMode.cpp
-  [6/8] Link UnrealEditor-ArenaBattle.lib
+    Requested 1.5 GB free memory per action, 6.69 GB available: limiting max parallel actions to 4
+  Building 7 actions with 4 processes...
+  [1/7] Compile ArenaBattle.init.gen.cpp
+  [2/7] Compile ABGameMode.cpp
+  [3/7] Compile ABCharacter.gen.cpp
+  [4/7] Compile ABCharacter.cpp
+  [5/7] Link UnrealEditor-ArenaBattle.lib
      C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.lib 라이브러리 및 C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.exp 개체를 생성하고 있습니다.
-  [7/8] Link UnrealEditor-ArenaBattle.dll
+  [6/7] Link UnrealEditor-ArenaBattle.dll
      C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.suppressed.lib 라이브러리 및 C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.suppressed.exp 개체를 생성하고 있습니다.
-  [8/8] WriteMetadata ArenaBattleEditor.target
-  Total time in Parallel executor: 6.10 seconds
-  Total execution time: 8.56 seconds
+  [7/7] WriteMetadata ArenaBattleEditor.target
+  Total time in Parallel executor: 6.79 seconds
+  Total execution time: 10.12 seconds

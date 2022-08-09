@@ -1,14 +1,18 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include <cassert>
 #include "ABCharacter.h"
 #include "ABAnimInstance.h"
-#include <cassert>
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 AABCharacter::AABCharacter()
 	: mArmLengthSpeed(3.f)
 	, mArmRotationSpeed(5.f)
 	, bAttacking(false)
+	, mMaxCombo(4)
+	, AttackRange(200.f)
+	, AttackRadius(50.f)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -37,9 +41,10 @@ AABCharacter::AABCharacter()
 		GetMesh()->SetAnimInstanceClass(ANIM.Class);
 	}
 
-	SetControlMode(mCurrentConotrol);
+	GetCapsuleComponent()->SetCollisionProfileName(TEXT("ABCharacter1"));
 
-	//GetCharacterMovement()->JumpZVelocity = 800.f;
+	SetControlMode(mCurrentConotrol);
+	AttackEndComboState();
 }
 
 // Called when the game starts or when spawned
@@ -101,10 +106,9 @@ void AABCharacter::Tick(float DeltaTime)
 
 	mSpringArm->TargetArmLength = FMath::FInterpTo(mSpringArm->TargetArmLength, mArmLengthTo, DeltaTime, mArmLengthSpeed);
 	
-
 	switch (mCurrentConotrol)
 	{
-	case EControlMode::DIABLO:		
+	case EControlMode::DIABLO:
 		mSpringArm->SetRelativeRotation(FMath::RInterpTo(mSpringArm->GetRelativeRotation(), mArmRotationTo, DeltaTime, mArmRotationSpeed));
 		if (mMoveDirect.SizeSquared() > 0.f)
 		{
@@ -115,6 +119,23 @@ void AABCharacter::Tick(float DeltaTime)
 	default:
 		break;
 	}
+
+	/*if (!bAttacking)
+	{
+		switch (mCurrentConotrol)
+		{
+		case EControlMode::DIABLO:
+			mSpringArm->SetRelativeRotation(FMath::RInterpTo(mSpringArm->GetRelativeRotation(), mArmRotationTo, DeltaTime, mArmRotationSpeed));
+			if (mMoveDirect.SizeSquared() > 0.f)
+			{
+				GetController()->SetControlRotation(FRotationMatrix::MakeFromX(mMoveDirect).Rotator());
+				AddMovementInput(mMoveDirect);
+			}
+			break;
+		default:
+			break;
+		}
+	}*/
 }
 
 // Called to bind functionality to input
@@ -131,6 +152,16 @@ void AABCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &AABCharacter::Attack);
+}
+
+
+void AABCharacter::Jump()
+{
+	Super::Jump();
+	/*if (!bAttacking)
+	{
+		Super::Jump();
+	}*/
 }
 
 void AABCharacter::UpDown(float NewAxisValue)
@@ -214,21 +245,93 @@ void AABCharacter::PostInitializeComponents()
 	assert(mABAnim != nullptr);
 
 	mABAnim->OnMontageEnded.AddDynamic(this, &AABCharacter::OnAttackMontageEnded);
+
+	mABAnim->OnNextAttackCheck.AddLambda([this]() -> void {
+		bCanNextCombo = false;
+
+		if (bComboInputOn)
+		{
+			AttackStartComboState();
+			mABAnim->JumpToAttackMotageSection(mCurrentCombo);
+		}
+		});
+
+	mABAnim->OnAttackHitCheck.AddUObject(this, &AABCharacter::AttackCheck);
 }
 
 void AABCharacter::Attack()
 {
 	if (bAttacking)
 	{
-		return;
+		ABCHECK(FMath::IsWithinInclusive<int32>(mCurrentCombo, 1, mMaxCombo));
+		if (bCanNextCombo)
+		{
+			bComboInputOn = true;
+		}	
 	}
-
-	mABAnim->PlayAttackMontage();
-	bAttacking = true;
+	else
+	{
+		ABCHECK(mCurrentCombo == 0);
+		AttackStartComboState();
+		mABAnim->PlayAttackMontage();
+		//mABAnim->JumpToAttackMotageSection(mCurrentCombo);
+		bAttacking = true;
+	}	
 }
 
 void AABCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 {
-	assert(bAttacking);
+	ABCHECK(bAttacking);
 	bAttacking = false;
+	AttackEndComboState();
+}
+
+
+void AABCharacter::AttackStartComboState()
+{
+	bCanNextCombo = true;
+	bComboInputOn = false;
+	ABCHECK(FMath::IsWithinInclusive<int32>(mCurrentCombo, 0, mMaxCombo - 1));
+	mCurrentCombo = FMath::Clamp<int32>(mCurrentCombo + 1, 1, mMaxCombo);
+}
+
+void AABCharacter::AttackEndComboState()
+{
+	bComboInputOn = false;
+	bCanNextCombo = false;
+	mCurrentCombo = 0;
+}
+
+void AABCharacter::AttackCheck()
+{
+	FHitResult result;
+	FCollisionQueryParams params(NAME_None, false, this);
+	bool bResult = GetWorld()->SweepSingleByChannel(
+		result,
+		GetActorLocation(),
+		GetActorLocation() + GetActorForwardVector() * AttackRange,
+		FQuat::Identity,
+		ECollisionChannel::ECC_GameTraceChannel2,
+		FCollisionShape::MakeSphere(AttackRadius),
+		params);
+
+#if ENABLE_DRAW_DEBUG
+
+	DrawDebugCapsule(GetWorld(),
+		GetActorLocation() + GetActorForwardVector() * AttackRange * 0.5f,
+		AttackRange * 0.5f + AttackRadius,
+		AttackRadius,
+		FRotationMatrix::MakeFromZ(GetActorForwardVector() * AttackRange).ToQuat(),
+		bResult ? FColor::Green : FColor::Red,
+		false,
+		5.0f);
+
+#endif
+	if (bResult)
+	{
+		if (result.GetActor())
+		{
+			ABLOG(Warning, TEXT("Hit Actor Name : %s"), *result.GetActor()->GetName());
+		}
+	}
 }

@@ -2,6 +2,7 @@
 
 
 #include "ABAnimInstance.h"
+#include <cassert>
 
 UABAnimInstance::UABAnimInstance()
 	: mCurrentPawnSpeed(0.f)
@@ -33,4 +34,26 @@ void UABAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 void UABAnimInstance::PlayAttackMontage()
 {
 	Montage_Play(mAttackMontage, 1.f);
+}
+
+void UABAnimInstance::JumpToAttackMotageSection(int32 NewSection)
+{
+	ABCHECK(Montage_IsPlaying(mAttackMontage));
+	Montage_JumpToSection(GetAttackMontageSection(NewSection), mAttackMontage);
+}
+
+void UABAnimInstance::AnimNotify_AttackHitCheck()
+{
+	OnAttackHitCheck.Broadcast();
+}
+
+void UABAnimInstance::AnimNotify_NextAttackCheck()
+{
+	OnNextAttackCheck.Broadcast();
+}
+
+FName UABAnimInstance::GetAttackMontageSection(int32 Section)
+{
+	ABCHECK(FMath::IsWithinInclusive<int32>(Section, 1, 4), NAME_None);
+	return FName(*FString::Printf(TEXT("Attack%d"), Section));
 }

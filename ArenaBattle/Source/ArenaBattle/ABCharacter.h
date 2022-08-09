@@ -57,6 +57,7 @@ private:
 	void ViewChange();
 	void Attack();
 
+
 	UFUNCTION()
 		void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
 
@@ -65,4 +66,35 @@ private:
 
 	UPROPERTY()
 		class UABAnimInstance* mABAnim;
+
+	virtual void Jump() override;
+
+	//공격이 시작될 때
+	void AttackStartComboState();
+	//공격이 끝났을 때
+	void AttackEndComboState();
+
+	void AttackCheck();
+
+	//다음 콤보로의 이동 가능 여부
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+		bool bCanNextCombo;
+
+	//콤보 입력 여부
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+		bool bComboInputOn;
+
+	//현재 실행 중인 콤보 카운터
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+		int32 mCurrentCombo;
+
+	//콤보카운터의 최대치
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+		int32 mMaxCombo;
+
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+		float AttackRange;
+
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
+		float AttackRadius;
 };
