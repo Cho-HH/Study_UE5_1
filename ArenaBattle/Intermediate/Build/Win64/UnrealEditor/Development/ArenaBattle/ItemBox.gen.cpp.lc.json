@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\inc\\arenabattle\\itembox.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\arenabattleeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\development\\arenabattle\\definitions.arenabattle.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\itembox.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\inc\\arenabattle\\itembox.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

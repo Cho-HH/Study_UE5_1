@@ -4,6 +4,7 @@
 #include "ABCharacter.h"
 #include "ABAnimInstance.h"
 #include "DrawDebugHelpers.h"
+#include "ABWeapon.h"
 
 // Sets default values
 AABCharacter::AABCharacter()
@@ -13,6 +14,7 @@ AABCharacter::AABCharacter()
 	, mMaxCombo(4)
 	, AttackRange(200.f)
 	, AttackRadius(50.f)
+	, mCurHp(100)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -41,8 +43,6 @@ AABCharacter::AABCharacter()
 		GetMesh()->SetAnimInstanceClass(ANIM.Class);
 	}
 
-	GetCapsuleComponent()->SetCollisionProfileName(TEXT("ABCharacter1"));
-
 	SetControlMode(mCurrentConotrol);
 	AttackEndComboState();
 }
@@ -52,6 +52,14 @@ void AABCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	GetCapsuleComponent()->SetCollisionProfileName(TEXT("ABCharacter1"));
+
+	FName WeaponSocket(TEXT("hand_rSocket"));
+	AABWeapon* curWeapon = GetWorld()->SpawnActor<AABWeapon>(FVector::ZeroVector, FRotator::ZeroRotator);
+	if (curWeapon != nullptr)
+	{
+		curWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponSocket);
+	}
 }
 
 void AABCharacter::SetControlMode(EControlMode ControlMode)
@@ -332,6 +340,24 @@ void AABCharacter::AttackCheck()
 		if (result.GetActor())
 		{
 			ABLOG(Warning, TEXT("Hit Actor Name : %s"), *result.GetActor()->GetName());
+
+			FDamageEvent DamageEvent;
+			result.GetActor()->TakeDamage(50.0f, DamageEvent,
+					GetController(), this);
 		}
 	}
+}
+
+float AABCharacter::TakeDamage(float DamageAmount, const FDamageEvent& DamageEvent,
+	AController* EventInstigator, AActor* DamageCauser)
+{
+	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+	mCurHp -= FinalDamage;
+	ABLOG(Warning, TEXT("Actor : %s took Damage : %f, remain HP : %d"), *GetName(), FinalDamage, mCurHp);
+	if (mCurHp <= 0)
+	{
+		mABAnim->SetDeadAnim();
+		SetActorEnableCollision(false);
+	}
+	return FinalDamage;
 }

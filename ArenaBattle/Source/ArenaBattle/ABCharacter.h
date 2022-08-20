@@ -75,6 +75,8 @@ private:
 	void AttackEndComboState();
 
 	void AttackCheck();
+	virtual float TakeDamage(float DamageAmount, const FDamageEvent& DamageEvent, AController* 
+		EventInstigator, AActor* DamageCauser) override;
 
 	//다음 콤보로의 이동 가능 여부
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
@@ -97,4 +99,10 @@ private:
 
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
 		float AttackRadius;
+
+	UPROPERTY(VisibleAnywhere, Category = Character)
+		int32 mCurHp;
+
+
+
 };

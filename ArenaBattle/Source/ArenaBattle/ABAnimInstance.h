@@ -25,6 +25,8 @@ public:
 	FOnNextAttackCheckDelegate OnNextAttackCheck;
 	FOnAttackHitCheckDelegate OnAttackHitCheck;
 
+	void SetDeadAnim() { IsDead = true; };
+
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
 		float mCurrentPawnSpeed;
@@ -40,6 +42,9 @@ private:
 
 	UFUNCTION()
 		void AnimNotify_NextAttackCheck();
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
+		bool IsDead;
 
 	FName GetAttackMontageSection(int32 Section);
 };
