@@ -33,9 +33,16 @@ public:
 	UPROPERTY(EditAnywhere, Category = Box)
 		TSubclassOf<class AABWeapon> mWeapon;
 		
+	//UPROPERTY(VisibleAnywhere, Category = Box)
+		//class AABWeapon* mWeapon;
+
+	UPROPERTY(EditAnywhere, Category = Box)
+		UParticleSystemComponent* mEffect;
 
 private:
 	UFUNCTION()
 	void Overlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
+	UFUNCTION()
+		void EffectFinished(class UParticleSystemComponent* PSystem);
 };

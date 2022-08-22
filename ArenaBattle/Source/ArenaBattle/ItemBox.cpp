@@ -3,6 +3,7 @@
 
 #include "ItemBox.h"
 #include "ABWeapon.h"
+#include "ABCharacter.h"
 
 // Sets default values
 AItemBox::AItemBox()
@@ -12,9 +13,11 @@ AItemBox::AItemBox()
 
 	mTrigger = CreateDefaultSubobject<UBoxComponent>(TEXT("TRIGGER"));
 	mBox = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BOX"));
+	mEffect = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("PARTICLE"));
 
 	RootComponent = mTrigger;
 	mBox->SetupAttachment(RootComponent);
+	mEffect->SetupAttachment(RootComponent);
 
 	mTrigger->SetBoxExtent(FVector(40.0f, 42.0f, 30.0f));
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> SM_BOX(TEXT("/Game/InfinityBladeGrassLands/Environments/Breakables/StaticMesh/Box/SM_Env_Breakables_Box1.SM_Env_Breakables_Box1"));
@@ -29,6 +32,14 @@ AItemBox::AItemBox()
 	mBox->SetCollisionProfileName(TEXT("NoCollision"));
 
 	mWeapon = AABWeapon::StaticClass();
+	//mWeapon = CreateDefaultSubobject<AABWeapon>(TEXT("WEAPON"));
+
+	static ConstructorHelpers::FObjectFinder<UParticleSystem> P_CHESTOPEN(TEXT("/Game/InfinityBladeGrassLands/Effects/FX_Treasure/Chest/P_TreasureChest_Open_Mesh.P_TreasureChest_Open_Mesh"));
+	if (P_CHESTOPEN.Succeeded())
+	{
+		mEffect->SetTemplate(P_CHESTOPEN.Object);
+		mEffect->bAutoActivate = false;
+	}
 }
 
 // Called when the game starts or when spawned
@@ -53,6 +64,28 @@ void AItemBox::Tick(float DeltaTime)
 
 void AItemBox::Overlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	ABLOG_S(Warning);
+	if (mWeapon == nullptr)
+	{
+		ABLOG(Warning, TEXT("%s ItemBox is Empty!"), *GetName());
+		return;
+	}
+
+	
+	AABCharacter* character = Cast<AABCharacter>(OtherActor);
+	if (character->getHoldingWeapon())
+	{
+		ABLOG(Warning, TEXT("%s already holding weapon"), *character->GetName());
+		return;
+	}
+
+	mEffect->Activate(true);
+	mBox->SetHiddenInGame(true, true);
+	this->SetActorEnableCollision(false);
+	mEffect->OnSystemFinished.AddDynamic(this, &AItemBox::EffectFinished);	
+	character->SetWeapon(mWeapon);
 }
 
+void AItemBox::EffectFinished(UParticleSystemComponent* PSystem)
+{
+	this->Destroy();
+}

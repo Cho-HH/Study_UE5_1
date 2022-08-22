@@ -1,10 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include <cassert>
+
 #include "ABCharacter.h"
 #include "ABAnimInstance.h"
 #include "DrawDebugHelpers.h"
 #include "ABWeapon.h"
+
+#include <cassert>
 
 // Sets default values
 AABCharacter::AABCharacter()
@@ -15,6 +17,7 @@ AABCharacter::AABCharacter()
 	, AttackRange(200.f)
 	, AttackRadius(50.f)
 	, mCurHp(100)
+	, isHoldingWeapon(false)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -53,13 +56,6 @@ void AABCharacter::BeginPlay()
 	Super::BeginPlay();
 	
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("ABCharacter1"));
-
-	FName WeaponSocket(TEXT("hand_rSocket"));
-	AABWeapon* curWeapon = GetWorld()->SpawnActor<AABWeapon>(FVector::ZeroVector, FRotator::ZeroRotator);
-	if (curWeapon != nullptr)
-	{
-		curWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponSocket);
-	}
 }
 
 void AABCharacter::SetControlMode(EControlMode ControlMode)
@@ -160,16 +156,18 @@ void AABCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction(TEXT("Attack"), EInputEvent::IE_Pressed, this, &AABCharacter::Attack);
+	PlayerInputComponent->BindAction(TEXT("PutDown"), EInputEvent::IE_Pressed, this, &AABCharacter::PutDownWeapon);
 }
 
-
-void AABCharacter::Jump()
+void AABCharacter::PutDownWeapon()
 {
-	Super::Jump();
-	/*if (!bAttacking)
+	if (!isHoldingWeapon)
 	{
-		Super::Jump();
-	}*/
+		return;
+	}
+
+	isHoldingWeapon = false;
+	curWeapon->Destroy();
 }
 
 void AABCharacter::UpDown(float NewAxisValue)
@@ -360,4 +358,24 @@ float AABCharacter::TakeDamage(float DamageAmount, const FDamageEvent& DamageEve
 		SetActorEnableCollision(false);
 	}
 	return FinalDamage;
+}
+
+void AABCharacter::SetWeapon(UClass* newWeapon)
+{
+	if (isHoldingWeapon)
+	{
+		ABLOG(Warning, TEXT("%s already has weapon"), *GetName());
+		return;
+	}
+	isHoldingWeapon = true;
+	FName WeaponSocket(TEXT("hand_rSocket"));
+	AABWeapon* tmp = GetWorld()->SpawnActor<AABWeapon>(newWeapon, FVector::ZeroVector, FRotator::ZeroRotator);
+	tmp->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponSocket);
+	curWeapon = tmp;
+	tmp->SetOwner(this);
+}
+
+bool AABCharacter::getHoldingWeapon() const
+{
+	return isHoldingWeapon;
 }

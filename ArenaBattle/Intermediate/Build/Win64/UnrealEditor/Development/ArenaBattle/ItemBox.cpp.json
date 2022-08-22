@@ -207,7 +207,9 @@
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gameplaystatics.generated.h",
             "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\inc\\arenabattle\\itembox.generated.h",
             "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\abweapon.h",
-            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\inc\\arenabattle\\abweapon.generated.h"
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\inc\\arenabattle\\abweapon.generated.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\abcharacter.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\inc\\arenabattle\\abcharacter.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

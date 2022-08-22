@@ -15,6 +15,23 @@ public:
 	// Sets default values for this character's properties
 	AABCharacter();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+	virtual void PostInitializeComponents() override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UPROPERTY(VisibleAnywhere, Category = Camera)
+		USpringArmComponent* mSpringArm;
+
+	UPROPERTY(VisibleAnywhere, Category = Camera)
+		UCameraComponent* mCamera;
+
+	void SetWeapon(UClass* newWeapon);
+
+	bool getHoldingWeapon() const;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -35,48 +52,17 @@ protected:
 	float mArmLengthSpeed = 0.f;
 	float mArmRotationSpeed = 0.f;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-	virtual void PostInitializeComponents() override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-	UPROPERTY(VisibleAnywhere, Category = Camera)
-		USpringArmComponent* mSpringArm;
-
-	UPROPERTY(VisibleAnywhere, Category = Camera)
-		UCameraComponent* mCamera;
 private:
-	void UpDown(float NewAxisValue);
-	void LeftRight(float NewAxisValue);
-	void LookUp(float NewAxisValue);
-	void Turn(float NewAxisValue);
+	bool isHoldingWeapon;
 
-	void ViewChange();
-	void Attack();
-
-
-	UFUNCTION()
-		void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+	UPROPERTY(VisibleAnywhere, Category = Weapon)
+	class AABWeapon* curWeapon;
 
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
-		bool bAttacking;
+	bool bAttacking;
 
 	UPROPERTY()
-		class UABAnimInstance* mABAnim;
-
-	virtual void Jump() override;
-
-	//공격이 시작될 때
-	void AttackStartComboState();
-	//공격이 끝났을 때
-	void AttackEndComboState();
-
-	void AttackCheck();
-	virtual float TakeDamage(float DamageAmount, const FDamageEvent& DamageEvent, AController* 
-		EventInstigator, AActor* DamageCauser) override;
+	class UABAnimInstance* mABAnim;
 
 	//다음 콤보로의 이동 가능 여부
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
@@ -103,6 +89,26 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = Character)
 		int32 mCurHp;
 
+	void PutDownWeapon();
+private:
+	void UpDown(float NewAxisValue);
+	void LeftRight(float NewAxisValue);
+	void LookUp(float NewAxisValue);
+	void Turn(float NewAxisValue);
+
+	void ViewChange();
+	void Attack();
 
 
+	UFUNCTION()
+		void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+
+	//공격이 시작될 때
+	void AttackStartComboState();
+	//공격이 끝났을 때
+	void AttackEndComboState();
+
+	void AttackCheck();
+	virtual float TakeDamage(float DamageAmount, const FDamageEvent& DamageEvent, AController* 
+		EventInstigator, AActor* DamageCauser) override;
 };
