@@ -28,6 +28,9 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = Camera)
 		UCameraComponent* mCamera;
 
+	UPROPERTY(VisibleAnywhere, Category = Camera)
+		class UABCharacterStatComponent* mCharStat;
+
 	void SetWeapon(UClass* newWeapon);
 
 	bool getHoldingWeapon() const;

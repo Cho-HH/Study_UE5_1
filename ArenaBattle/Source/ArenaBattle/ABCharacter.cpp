@@ -5,6 +5,7 @@
 #include "ABAnimInstance.h"
 #include "DrawDebugHelpers.h"
 #include "ABWeapon.h"
+#include "ABCharacterStatComponent.h"
 
 #include <cassert>
 
@@ -24,6 +25,7 @@ AABCharacter::AABCharacter()
 
 	mSpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SPRINGARM"));
 	mCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));
+	mCharStat = CreateDefaultSubobject<UABCharacterStatComponent>(TEXT("STAT"));
 
 	mSpringArm->SetupAttachment(GetCapsuleComponent());
 	mCamera->SetupAttachment(mSpringArm);

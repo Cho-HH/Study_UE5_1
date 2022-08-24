@@ -1,5 +1,6 @@
 C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Inc\ArenaBattle\ArenaBattle.init.gen.cpp
 /I .
+/I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattle\Private
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine
 /I Runtime
 /I ..\Shaders\Shared
@@ -253,6 +254,7 @@ C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\Unreal
 /I Developer\AnimationDataController\Public
 /I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Inc\ArenaBattle
 /I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source
+/I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattle\Public
 /I ThirdParty\mimalloc\include
 /I ThirdParty\LibTiff\Source\Win64
 /I ThirdParty\LibTiff\Source
@@ -268,11 +270,11 @@ C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\Unreal
 /I ThirdParty\PhysX3\PhysX_3.4\Include\extensions
 /I ThirdParty\PhysX3\PhysX_3.4\Include\geometry
 /I "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\INCLUDE"
-/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"
+/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8.1\include\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\winrt"
 /FI"C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\ArenaBattleEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
 /FI"C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\Definitions.ArenaBattle.h"
 /Yu"C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\ArenaBattleEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
