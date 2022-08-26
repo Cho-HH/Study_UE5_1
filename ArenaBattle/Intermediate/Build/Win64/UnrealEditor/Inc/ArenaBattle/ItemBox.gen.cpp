@@ -245,10 +245,10 @@ void EmptyLinkFunctionForGeneratedCodeItemBox() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItemBox_Statics::NewProp_mEffect_MetaData[] = {
 		{ "Category", "Box" },
-		{ "Comment", "//UPROPERTY(VisibleAnywhere, Category = Box)\n//class AABWeapon* mWeapon;\n" },
+		{ "Comment", "/*UPROPERTY(VisibleAnywhere, Category = Box)\n\x09\x09""class AABWeapon* mWeapon;*/" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "ItemBox.h" },
-		{ "ToolTip", "UPROPERTY(VisibleAnywhere, Category = Box)\nclass AABWeapon* mWeapon;" },
+		{ "ToolTip", "UPROPERTY(VisibleAnywhere, Category = Box)\n               class AABWeapon* mWeapon;" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AItemBox_Statics::NewProp_mEffect = { "mEffect", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AItemBox, mEffect), Z_Construct_UClass_UParticleSystemComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AItemBox_Statics::NewProp_mEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AItemBox_Statics::NewProp_mEffect_MetaData)) };
@@ -294,9 +294,9 @@ void EmptyLinkFunctionForGeneratedCodeItemBox() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ItemBox_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AItemBox, AItemBox::StaticClass, TEXT("AItemBox"), &Z_Registration_Info_UClass_AItemBox, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItemBox), 1991407869U) },
+		{ Z_Construct_UClass_AItemBox, AItemBox::StaticClass, TEXT("AItemBox"), &Z_Registration_Info_UClass_AItemBox, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItemBox), 3588851513U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ItemBox_h_1661715254(TEXT("/Script/ArenaBattle"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ItemBox_h_3549540143(TEXT("/Script/ArenaBattle"),
 		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ItemBox_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ItemBox_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

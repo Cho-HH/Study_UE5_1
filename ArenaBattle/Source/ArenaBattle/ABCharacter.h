@@ -28,8 +28,11 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = Camera)
 		UCameraComponent* mCamera;
 
-	UPROPERTY(VisibleAnywhere, Category = Camera)
+	UPROPERTY(VisibleAnywhere, Category = Stat)
 		class UABCharacterStatComponent* mCharStat;
+
+	UPROPERTY(VisibleAnywhere, Category = UI)
+		class UWidgetComponent* mHPBar;
 
 	void SetWeapon(UClass* newWeapon);
 
@@ -88,9 +91,6 @@ private:
 
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true))
 		float AttackRadius;
-
-	UPROPERTY(VisibleAnywhere, Category = Character)
-		int32 mCurHp;
 
 	void PutDownWeapon();
 private:

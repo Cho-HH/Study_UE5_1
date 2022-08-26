@@ -14,8 +14,8 @@ UABGameInstance::UABGameInstance()
 
 void UABGameInstance::Init()
 {
-	int32 tmp = 20;
-	ABLOG(Warning, TEXT("DropExp of Level %d ABCharacter : %d"), tmp, getABCharacterData(tmp)->DropExp) ;
+	//int32 tmp = 20;
+	//ABLOG(Warning, TEXT("DropExp of Level %d ABCharacter : %d"), tmp, getABCharacterData(tmp)->DropExp) ;
 }
 
 FABCharacterData* UABGameInstance::getABCharacterData(int32 Level)

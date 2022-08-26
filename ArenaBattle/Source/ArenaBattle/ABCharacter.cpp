@@ -6,6 +6,8 @@
 #include "DrawDebugHelpers.h"
 #include "ABWeapon.h"
 #include "ABCharacterStatComponent.h"
+#include "Components/WidgetComponent.h"
+#include "ABCharacterWidget.h"
 
 #include <cassert>
 
@@ -17,7 +19,6 @@ AABCharacter::AABCharacter()
 	, mMaxCombo(4)
 	, AttackRange(200.f)
 	, AttackRadius(50.f)
-	, mCurHp(100)
 	, isHoldingWeapon(false)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -26,6 +27,17 @@ AABCharacter::AABCharacter()
 	mSpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SPRINGARM"));
 	mCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));
 	mCharStat = CreateDefaultSubobject<UABCharacterStatComponent>(TEXT("STAT"));
+	mHPBar = CreateDefaultSubobject<UWidgetComponent>(TEXT("HPBAR"));
+
+	mHPBar->SetupAttachment(GetMesh());
+	mHPBar->SetRelativeLocation(FVector(0.0f, 0.0f, 180.0f));
+	mHPBar->SetWidgetSpace(EWidgetSpace::Screen);
+	static ConstructorHelpers::FClassFinder<UUserWidget> UI_HUD(TEXT("/Game/Book/UI/UI_HPBar.UI_HPBar_C"));
+	if (UI_HUD.Succeeded())
+	{
+		mHPBar->SetWidgetClass(UI_HUD.Class);
+		mHPBar->SetDrawSize(FVector2D(150.0f, 50.0f));
+	}
 
 	mSpringArm->SetupAttachment(GetCapsuleComponent());
 	mCamera->SetupAttachment(mSpringArm);
@@ -48,6 +60,7 @@ AABCharacter::AABCharacter()
 		GetMesh()->SetAnimInstanceClass(ANIM.Class);
 	}
 
+
 	SetControlMode(mCurrentConotrol);
 	AttackEndComboState();
 }
@@ -58,6 +71,12 @@ void AABCharacter::BeginPlay()
 	Super::BeginPlay();
 	
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("ABCharacter1"));
+
+	UABCharacterWidget* charWidget = Cast<UABCharacterWidget>(mHPBar->GetUserWidgetObject());
+	if (charWidget != nullptr)
+	{
+		charWidget->BindCharacterStat(mCharStat);
+	}
 }
 
 void AABCharacter::SetControlMode(EControlMode ControlMode)
@@ -265,6 +284,10 @@ void AABCharacter::PostInitializeComponents()
 		});
 
 	mABAnim->OnAttackHitCheck.AddUObject(this, &AABCharacter::AttackCheck);
+	mCharStat->OnHPIsZero.AddLambda([this]() {
+		mABAnim->SetDeadAnim();
+		SetActorEnableCollision(false);
+		});
 }
 
 void AABCharacter::Attack()
@@ -342,7 +365,7 @@ void AABCharacter::AttackCheck()
 			ABLOG(Warning, TEXT("Hit Actor Name : %s"), *result.GetActor()->GetName());
 
 			FDamageEvent DamageEvent;
-			result.GetActor()->TakeDamage(50.0f, DamageEvent,
+			result.GetActor()->TakeDamage(mCharStat->GetAttack(), DamageEvent,
 					GetController(), this);
 		}
 	}
@@ -352,13 +375,8 @@ float AABCharacter::TakeDamage(float DamageAmount, const FDamageEvent& DamageEve
 	AController* EventInstigator, AActor* DamageCauser)
 {
 	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-	mCurHp -= FinalDamage;
-	ABLOG(Warning, TEXT("Actor : %s took Damage : %f, remain HP : %d"), *GetName(), FinalDamage, mCurHp);
-	if (mCurHp <= 0)
-	{
-		mABAnim->SetDeadAnim();
-		SetActorEnableCollision(false);
-	}
+	mCharStat->SetDamage(FinalDamage);
+	ABLOG(Warning, TEXT("Actor : %s took Damage : %f, remain HP :%f"), *GetName(), FinalDamage, mCharStat->GetCurHP());
 	return FinalDamage;
 }
 

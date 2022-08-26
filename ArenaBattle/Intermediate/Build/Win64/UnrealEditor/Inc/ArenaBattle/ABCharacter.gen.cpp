@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeABCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ARENABATTLE_API UClass* Z_Construct_UClass_UABCharacterStatComponent_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UWidgetComponent_NoRegister();
 	ARENABATTLE_API UClass* Z_Construct_UClass_AABWeapon_NoRegister();
 	ARENABATTLE_API UClass* Z_Construct_UClass_UABAnimInstance_NoRegister();
 // End Cross Module References
@@ -103,6 +104,10 @@ void EmptyLinkFunctionForGeneratedCodeABCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_mCharStat;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mHPBar_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_mHPBar;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_curWeapon_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_curWeapon;
@@ -141,10 +146,6 @@ void EmptyLinkFunctionForGeneratedCodeABCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttackRadius_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_AttackRadius;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_mCurHp_MetaData[];
-#endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_mCurHp;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -181,12 +182,20 @@ void EmptyLinkFunctionForGeneratedCodeABCharacter() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AABCharacter_Statics::NewProp_mCamera = { "mCamera", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABCharacter, mCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AABCharacter_Statics::NewProp_mCamera_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABCharacter_Statics::NewProp_mCamera_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABCharacter_Statics::NewProp_mCharStat_MetaData[] = {
-		{ "Category", "Camera" },
+		{ "Category", "Stat" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "ABCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AABCharacter_Statics::NewProp_mCharStat = { "mCharStat", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABCharacter, mCharStat), Z_Construct_UClass_UABCharacterStatComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AABCharacter_Statics::NewProp_mCharStat_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABCharacter_Statics::NewProp_mCharStat_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABCharacter_Statics::NewProp_mHPBar_MetaData[] = {
+		{ "Category", "UI" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "ABCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AABCharacter_Statics::NewProp_mHPBar = { "mHPBar", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABCharacter, mHPBar), Z_Construct_UClass_UWidgetComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AABCharacter_Statics::NewProp_mHPBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABCharacter_Statics::NewProp_mHPBar_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABCharacter_Statics::NewProp_curWeapon_MetaData[] = {
 		{ "Category", "Weapon" },
@@ -276,17 +285,11 @@ void EmptyLinkFunctionForGeneratedCodeABCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AABCharacter_Statics::NewProp_AttackRadius = { "AttackRadius", nullptr, (EPropertyFlags)0x0040000000020815, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABCharacter, AttackRadius), METADATA_PARAMS(Z_Construct_UClass_AABCharacter_Statics::NewProp_AttackRadius_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABCharacter_Statics::NewProp_AttackRadius_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABCharacter_Statics::NewProp_mCurHp_MetaData[] = {
-		{ "Category", "Character" },
-		{ "ModuleRelativePath", "ABCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AABCharacter_Statics::NewProp_mCurHp = { "mCurHp", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABCharacter, mCurHp), METADATA_PARAMS(Z_Construct_UClass_AABCharacter_Statics::NewProp_mCurHp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABCharacter_Statics::NewProp_mCurHp_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AABCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_mSpringArm,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_mCamera,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_mCharStat,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_mHPBar,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_curWeapon,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_bAttacking,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_mABAnim,
@@ -296,7 +299,6 @@ void EmptyLinkFunctionForGeneratedCodeABCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_mMaxCombo,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_AttackRange,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_AttackRadius,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AABCharacter_Statics::NewProp_mCurHp,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AABCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AABCharacter>::IsAbstract,
@@ -334,9 +336,9 @@ void EmptyLinkFunctionForGeneratedCodeABCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AABCharacter, AABCharacter::StaticClass, TEXT("AABCharacter"), &Z_Registration_Info_UClass_AABCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AABCharacter), 2228202693U) },
+		{ Z_Construct_UClass_AABCharacter, AABCharacter::StaticClass, TEXT("AABCharacter"), &Z_Registration_Info_UClass_AABCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AABCharacter), 2841174322U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABCharacter_h_1560542273(TEXT("/Script/ArenaBattle"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABCharacter_h_373341270(TEXT("/Script/ArenaBattle"),
 		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

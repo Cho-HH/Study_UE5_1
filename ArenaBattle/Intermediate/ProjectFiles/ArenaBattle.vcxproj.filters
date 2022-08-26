@@ -56,6 +56,12 @@
     <ClInclude Include="..\..\Source\ArenaBattle\ABCharacterStatComponent.h">
       <Filter>Source\ArenaBattle</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\ArenaBattle\ABCharacterWidget.cpp">
+      <Filter>Source\ArenaBattle</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArenaBattle\ABCharacterWidget.h">
+      <Filter>Source\ArenaBattle</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\ArenaBattle\ABGameInstance.cpp">
       <Filter>Source\ArenaBattle</Filter>
     </ClCompile>

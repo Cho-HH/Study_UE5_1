@@ -33,8 +33,8 @@ public:
 	UPROPERTY(EditAnywhere, Category = Box)
 		TSubclassOf<class AABWeapon> mWeapon;
 		
-	//UPROPERTY(VisibleAnywhere, Category = Box)
-		//class AABWeapon* mWeapon;
+	/*UPROPERTY(VisibleAnywhere, Category = Box)
+		class AABWeapon* mWeapon;*/
 
 	UPROPERTY(EditAnywhere, Category = Box)
 		UParticleSystemComponent* mEffect;
