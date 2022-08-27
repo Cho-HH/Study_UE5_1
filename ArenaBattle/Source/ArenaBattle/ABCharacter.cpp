@@ -8,6 +8,7 @@
 #include "ABCharacterStatComponent.h"
 #include "Components/WidgetComponent.h"
 #include "ABCharacterWidget.h"
+#include "ABAIController.h"
 
 #include <cassert>
 
@@ -60,6 +61,8 @@ AABCharacter::AABCharacter()
 		GetMesh()->SetAnimInstanceClass(ANIM.Class);
 	}
 
+	AIControllerClass = AABAIController::StaticClass();
+	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
 
 	SetControlMode(mCurrentConotrol);
 	AttackEndComboState();

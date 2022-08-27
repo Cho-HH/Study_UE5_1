@@ -4,22 +4,22 @@
   Invalidating makefile for ArenaBattleEditor (working set of source files changed)
   Parsing headers for ArenaBattleEditor
     Running UnrealHeaderTool "C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\ArenaBattle.uproject" "C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\ArenaBattleEditor\Development\ArenaBattleEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\82106\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for ArenaBattleEditor in 1.7550709 seconds
+  Reflection code generated for ArenaBattleEditor in 2.2573441 seconds
   Building ArenaBattleEditor...
   Using Visual Studio 2022 14.32.31332 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [Adaptive Build] Excluded from ArenaBattle unity file: ABCharacter.cpp, ABCharacterStatComponent.cpp, ABCharacterWidget.cpp, ABGameInstance.cpp, ItemBox.cpp
+  [Adaptive Build] Excluded from ArenaBattle unity file: ABAIController.cpp, ABCharacter.cpp
   Determining max actions to execute in parallel (6 physical cores, 12 logical cores)
     Executing up to 6 processes, one per physical core
-    Requested 1.5 GB free memory per action, 5.89 GB available: limiting max parallel actions to 3
-  Building 6 actions with 3 processes...
-  [1/6] Compile ABCharacterWidget.gen.cpp
-  [2/6] Compile ABCharacterWidget.cpp
+    Requested 1.5 GB free memory per action, 7.8 GB available: limiting max parallel actions to 5
+  Building 6 actions with 5 processes...
+  [1/6] Compile ABAIController.gen.cpp
+  [2/6] Compile ABAIController.cpp
   [3/6] Compile ABCharacter.cpp
-C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattle\ABCharacter.cpp(21): warning C5038: 데이터 멤버 'AABCharacter::AttackRadius'은(는) 데이터 멤버 'AABCharacter::isHoldingWeapon' 이후에 초기화됩니다.
+C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattle\ABCharacter.cpp(22): warning C5038: 데이터 멤버 'AABCharacter::AttackRadius'은(는) 데이터 멤버 'AABCharacter::isHoldingWeapon' 이후에 초기화됩니다.
   [4/6] Link UnrealEditor-ArenaBattle.lib
      C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.lib 라이브러리 및 C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.exp 개체를 생성하고 있습니다.
   [5/6] Link UnrealEditor-ArenaBattle.dll
      C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.suppressed.lib 라이브러리 및 C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.suppressed.exp 개체를 생성하고 있습니다.
   [6/6] WriteMetadata ArenaBattleEditor.target
-  Total time in Parallel executor: 10.36 seconds
-  Total execution time: 13.80 seconds
+  Total time in Parallel executor: 15.04 seconds
+  Total execution time: 20.11 seconds
