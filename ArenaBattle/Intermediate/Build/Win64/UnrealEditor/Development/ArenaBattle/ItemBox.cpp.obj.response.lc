@@ -1,4 +1,4 @@
-C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattle\ItemBox.cpp
+C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattle\Private\ItemBox.cpp
 /I .
 /I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattle\Private
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine
@@ -252,8 +252,10 @@ C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattle\ItemBox.cpp
 /I Runtime\ClothingSystemRuntimeInterface\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationDataController
 /I Developer\AnimationDataController\Public
-/I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Inc\ArenaBattle
+/I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Inc\ArenaBattleSetting
 /I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source
+/I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattleSetting\Public
+/I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Inc\ArenaBattle
 /I C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattle\Public
 /I ThirdParty\mimalloc\include
 /I ThirdParty\LibTiff\Source\Win64

@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "ArenaBattle/ABCharacterWidget.h"
+#include "ArenaBattle/Public/ABCharacterWidget.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeABCharacterWidget() {}
 // Cross Module References
@@ -45,13 +45,13 @@ void EmptyLinkFunctionForGeneratedCodeABCharacterWidget() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UABCharacterWidget_Statics::Class_MetaDataParams[] = {
 		{ "Comment", "/**\n * \n */" },
 		{ "IncludePath", "ABCharacterWidget.h" },
-		{ "ModuleRelativePath", "ABCharacterWidget.h" },
+		{ "ModuleRelativePath", "Public/ABCharacterWidget.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UABCharacterWidget_Statics::NewProp_mHPBar_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ABCharacterWidget.h" },
+		{ "ModuleRelativePath", "Public/ABCharacterWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UABCharacterWidget_Statics::NewProp_mHPBar = { "mHPBar", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UABCharacterWidget, mHPBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UABCharacterWidget_Statics::NewProp_mHPBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UABCharacterWidget_Statics::NewProp_mHPBar_MetaData)) };
@@ -89,15 +89,15 @@ void EmptyLinkFunctionForGeneratedCodeABCharacterWidget() {}
 		return UABCharacterWidget::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UABCharacterWidget);
-	struct Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABCharacterWidget_h_Statics
+	struct Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABCharacterWidget_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABCharacterWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UABCharacterWidget, UABCharacterWidget::StaticClass, TEXT("UABCharacterWidget"), &Z_Registration_Info_UClass_UABCharacterWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UABCharacterWidget), 886596995U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABCharacterWidget_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UABCharacterWidget, UABCharacterWidget::StaticClass, TEXT("UABCharacterWidget"), &Z_Registration_Info_UClass_UABCharacterWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UABCharacterWidget), 3199236340U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABCharacterWidget_h_213584116(TEXT("/Script/ArenaBattle"),
-		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABCharacterWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABCharacterWidget_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABCharacterWidget_h_1958417668(TEXT("/Script/ArenaBattle"),
+		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABCharacterWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABCharacterWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

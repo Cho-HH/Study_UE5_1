@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattlesetting\\private\\arenabattlesetting.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\arenabattleeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\development\\arenabattlesetting\\definitions.arenabattlesetting.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattlesetting\\public\\arenabattlesetting.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

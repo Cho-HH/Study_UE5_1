@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "ArenaBattle/ItemBox.h"
+#include "ArenaBattle/Public/ItemBox.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeItemBox() {}
 // Cross Module References
@@ -79,7 +79,7 @@ void EmptyLinkFunctionForGeneratedCodeItemBox() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AItemBox_EffectFinished_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "ItemBox.h" },
+		{ "ModuleRelativePath", "Public/ItemBox.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AItemBox_EffectFinished_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AItemBox, nullptr, "EffectFinished", nullptr, nullptr, sizeof(Z_Construct_UFunction_AItemBox_EffectFinished_Statics::ItemBox_eventEffectFinished_Parms), Z_Construct_UFunction_AItemBox_EffectFinished_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBox_EffectFinished_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AItemBox_EffectFinished_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBox_EffectFinished_Statics::Function_MetaDataParams)) };
@@ -160,7 +160,7 @@ void EmptyLinkFunctionForGeneratedCodeItemBox() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AItemBox_Overlap_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "ItemBox.h" },
+		{ "ModuleRelativePath", "Public/ItemBox.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AItemBox_Overlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AItemBox, nullptr, "Overlap", nullptr, nullptr, sizeof(Z_Construct_UFunction_AItemBox_Overlap_Statics::ItemBox_eventOverlap_Parms), Z_Construct_UFunction_AItemBox_Overlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBox_Overlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00440401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AItemBox_Overlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AItemBox_Overlap_Statics::Function_MetaDataParams)) };
@@ -210,20 +210,20 @@ void EmptyLinkFunctionForGeneratedCodeItemBox() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArenaBattle,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AItemBox_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AItemBox_EffectFinished, "EffectFinished" }, // 607769155
-		{ &Z_Construct_UFunction_AItemBox_Overlap, "Overlap" }, // 3945628706
+		{ &Z_Construct_UFunction_AItemBox_EffectFinished, "EffectFinished" }, // 3810536015
+		{ &Z_Construct_UFunction_AItemBox_Overlap, "Overlap" }, // 324833172
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItemBox_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "ItemBox.h" },
-		{ "ModuleRelativePath", "ItemBox.h" },
+		{ "ModuleRelativePath", "Public/ItemBox.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItemBox_Statics::NewProp_mTrigger_MetaData[] = {
 		{ "Category", "Box" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ItemBox.h" },
+		{ "ModuleRelativePath", "Public/ItemBox.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AItemBox_Statics::NewProp_mTrigger = { "mTrigger", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AItemBox, mTrigger), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AItemBox_Statics::NewProp_mTrigger_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AItemBox_Statics::NewProp_mTrigger_MetaData)) };
@@ -231,14 +231,14 @@ void EmptyLinkFunctionForGeneratedCodeItemBox() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItemBox_Statics::NewProp_mBox_MetaData[] = {
 		{ "Category", "Box" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ItemBox.h" },
+		{ "ModuleRelativePath", "Public/ItemBox.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AItemBox_Statics::NewProp_mBox = { "mBox", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AItemBox, mBox), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AItemBox_Statics::NewProp_mBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AItemBox_Statics::NewProp_mBox_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItemBox_Statics::NewProp_mWeapon_MetaData[] = {
 		{ "Category", "Box" },
-		{ "ModuleRelativePath", "ItemBox.h" },
+		{ "ModuleRelativePath", "Public/ItemBox.h" },
 	};
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AItemBox_Statics::NewProp_mWeapon = { "mWeapon", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AItemBox, mWeapon), Z_Construct_UClass_AABWeapon_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AItemBox_Statics::NewProp_mWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AItemBox_Statics::NewProp_mWeapon_MetaData)) };
@@ -247,7 +247,7 @@ void EmptyLinkFunctionForGeneratedCodeItemBox() {}
 		{ "Category", "Box" },
 		{ "Comment", "/*UPROPERTY(VisibleAnywhere, Category = Box)\n\x09\x09""class AABWeapon* mWeapon;*/" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ItemBox.h" },
+		{ "ModuleRelativePath", "Public/ItemBox.h" },
 		{ "ToolTip", "UPROPERTY(VisibleAnywhere, Category = Box)\n               class AABWeapon* mWeapon;" },
 	};
 #endif
@@ -289,15 +289,15 @@ void EmptyLinkFunctionForGeneratedCodeItemBox() {}
 		return AItemBox::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AItemBox);
-	struct Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ItemBox_h_Statics
+	struct Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ItemBox_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ItemBox_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AItemBox, AItemBox::StaticClass, TEXT("AItemBox"), &Z_Registration_Info_UClass_AItemBox, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItemBox), 3588851513U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ItemBox_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AItemBox, AItemBox::StaticClass, TEXT("AItemBox"), &Z_Registration_Info_UClass_AItemBox, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItemBox), 3202310716U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ItemBox_h_3549540143(TEXT("/Script/ArenaBattle"),
-		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ItemBox_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ItemBox_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ItemBox_h_572520987(TEXT("/Script/ArenaBattle"),
+		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ItemBox_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ItemBox_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

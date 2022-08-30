@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "ArenaBattle/ABPawn.h"
+#include "ArenaBattle/Public/ABPawn.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeABPawn() {}
 // Cross Module References
@@ -65,14 +65,14 @@ void EmptyLinkFunctionForGeneratedCodeABPawn() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABPawn_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "ABPawn.h" },
-		{ "ModuleRelativePath", "ABPawn.h" },
+		{ "ModuleRelativePath", "Public/ABPawn.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABPawn_Statics::NewProp_mCapsule_MetaData[] = {
 		{ "Category", "Collision" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ABPawn.h" },
+		{ "ModuleRelativePath", "Public/ABPawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AABPawn_Statics::NewProp_mCapsule = { "mCapsule", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABPawn, mCapsule), Z_Construct_UClass_UCapsuleComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AABPawn_Statics::NewProp_mCapsule_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABPawn_Statics::NewProp_mCapsule_MetaData)) };
@@ -80,7 +80,7 @@ void EmptyLinkFunctionForGeneratedCodeABPawn() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABPawn_Statics::NewProp_mMesh_MetaData[] = {
 		{ "Category", "Visual" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ABPawn.h" },
+		{ "ModuleRelativePath", "Public/ABPawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AABPawn_Statics::NewProp_mMesh = { "mMesh", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABPawn, mMesh), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AABPawn_Statics::NewProp_mMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABPawn_Statics::NewProp_mMesh_MetaData)) };
@@ -88,7 +88,7 @@ void EmptyLinkFunctionForGeneratedCodeABPawn() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABPawn_Statics::NewProp_mMovement_MetaData[] = {
 		{ "Category", "Movement" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ABPawn.h" },
+		{ "ModuleRelativePath", "Public/ABPawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AABPawn_Statics::NewProp_mMovement = { "mMovement", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABPawn, mMovement), Z_Construct_UClass_UFloatingPawnMovement_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AABPawn_Statics::NewProp_mMovement_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABPawn_Statics::NewProp_mMovement_MetaData)) };
@@ -96,7 +96,7 @@ void EmptyLinkFunctionForGeneratedCodeABPawn() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABPawn_Statics::NewProp_mSpringArm_MetaData[] = {
 		{ "Category", "Camera" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ABPawn.h" },
+		{ "ModuleRelativePath", "Public/ABPawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AABPawn_Statics::NewProp_mSpringArm = { "mSpringArm", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABPawn, mSpringArm), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AABPawn_Statics::NewProp_mSpringArm_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABPawn_Statics::NewProp_mSpringArm_MetaData)) };
@@ -104,7 +104,7 @@ void EmptyLinkFunctionForGeneratedCodeABPawn() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABPawn_Statics::NewProp_mCamera_MetaData[] = {
 		{ "Category", "Camera" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ABPawn.h" },
+		{ "ModuleRelativePath", "Public/ABPawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AABPawn_Statics::NewProp_mCamera = { "mCamera", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABPawn, mCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AABPawn_Statics::NewProp_mCamera_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABPawn_Statics::NewProp_mCamera_MetaData)) };
@@ -146,15 +146,15 @@ void EmptyLinkFunctionForGeneratedCodeABPawn() {}
 		return AABPawn::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AABPawn);
-	struct Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABPawn_h_Statics
+	struct Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABPawn_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABPawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AABPawn, AABPawn::StaticClass, TEXT("AABPawn"), &Z_Registration_Info_UClass_AABPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AABPawn), 646053036U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABPawn_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AABPawn, AABPawn::StaticClass, TEXT("AABPawn"), &Z_Registration_Info_UClass_AABPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AABPawn), 1292734793U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABPawn_h_133054325(TEXT("/Script/ArenaBattle"),
-		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABPawn_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABPawn_h_2960510522(TEXT("/Script/ArenaBattle"),
+		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABPawn_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

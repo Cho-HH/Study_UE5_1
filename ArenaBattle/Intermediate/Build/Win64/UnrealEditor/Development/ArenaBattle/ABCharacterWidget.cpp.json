@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\abcharacterwidget.cpp",
+        "Source": "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\private\\abcharacterwidget.cpp",
         "ProvidedModule": "",
         "PCH": "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\arenabattleeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
         "Includes": [
             "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\development\\arenabattle\\definitions.arenabattle.h",
-            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\abcharacterwidget.h",
-            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\arenabattle.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\public\\abcharacterwidget.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\public\\arenabattle.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\public\\engineminimal.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\misc\\monolithicheaderboilerplate.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\coreuobject.h",
@@ -336,7 +336,7 @@
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\widgetblueprintgeneratedclass.generated.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\userwidget.generated.h",
             "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\inc\\arenabattle\\abcharacterwidget.generated.h",
-            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\abcharacterstatcomponent.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattle\\public\\abcharacterstatcomponent.h",
             "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\inc\\arenabattle\\abcharacterstatcomponent.generated.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\umg\\public\\components\\progressbar.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\slate\\public\\widgets\\notifications\\sprogressbar.h",

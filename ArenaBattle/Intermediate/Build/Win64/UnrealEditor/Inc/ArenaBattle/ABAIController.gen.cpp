@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "ArenaBattle/ABAIController.h"
+#include "ArenaBattle/Public/ABAIController.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeABAIController() {}
 // Cross Module References
@@ -51,18 +51,18 @@ void EmptyLinkFunctionForGeneratedCodeABAIController() {}
 		{ "Comment", "/**\n * \n */" },
 		{ "HideCategories", "Collision Rendering Transformation" },
 		{ "IncludePath", "ABAIController.h" },
-		{ "ModuleRelativePath", "ABAIController.h" },
+		{ "ModuleRelativePath", "Public/ABAIController.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABAIController_Statics::NewProp_mBTAsset_MetaData[] = {
-		{ "ModuleRelativePath", "ABAIController.h" },
+		{ "ModuleRelativePath", "Public/ABAIController.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AABAIController_Statics::NewProp_mBTAsset = { "mBTAsset", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABAIController, mBTAsset), Z_Construct_UClass_UBehaviorTree_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AABAIController_Statics::NewProp_mBTAsset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABAIController_Statics::NewProp_mBTAsset_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AABAIController_Statics::NewProp_mBBAsset_MetaData[] = {
-		{ "ModuleRelativePath", "ABAIController.h" },
+		{ "ModuleRelativePath", "Public/ABAIController.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AABAIController_Statics::NewProp_mBBAsset = { "mBBAsset", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AABAIController, mBBAsset), Z_Construct_UClass_UBlackboardData_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AABAIController_Statics::NewProp_mBBAsset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AABAIController_Statics::NewProp_mBBAsset_MetaData)) };
@@ -101,15 +101,15 @@ void EmptyLinkFunctionForGeneratedCodeABAIController() {}
 		return AABAIController::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AABAIController);
-	struct Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABAIController_h_Statics
+	struct Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABAIController_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABAIController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AABAIController, AABAIController::StaticClass, TEXT("AABAIController"), &Z_Registration_Info_UClass_AABAIController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AABAIController), 1088349048U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABAIController_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AABAIController, AABAIController::StaticClass, TEXT("AABAIController"), &Z_Registration_Info_UClass_AABAIController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AABAIController), 3162431702U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABAIController_h_2782264899(TEXT("/Script/ArenaBattle"),
-		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABAIController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABAIController_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABAIController_h_2850228784(TEXT("/Script/ArenaBattle"),
+		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABAIController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABAIController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

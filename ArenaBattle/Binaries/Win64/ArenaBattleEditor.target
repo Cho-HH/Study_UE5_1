@@ -2967,6 +2967,14 @@
 		{
 			"Path": "$(ProjectDir)/Binaries/Win64/UnrealEditor-ArenaBattle.pdb",
 			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(ProjectDir)/Binaries/Win64/UnrealEditor-ArenaBattleSetting.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Binaries/Win64/UnrealEditor-ArenaBattleSetting.pdb",
+			"Type": "SymbolFile"
 		}
 	],
 	"RuntimeDependencies": [

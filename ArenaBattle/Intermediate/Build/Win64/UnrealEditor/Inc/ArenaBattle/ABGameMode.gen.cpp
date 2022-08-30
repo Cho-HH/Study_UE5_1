@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "ArenaBattle/ABGameMode.h"
+#include "ArenaBattle/Public/ABGameMode.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeABGameMode() {}
 // Cross Module References
@@ -40,7 +40,7 @@ void EmptyLinkFunctionForGeneratedCodeABGameMode() {}
 		{ "Comment", "/**\n * \n */" },
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
 		{ "IncludePath", "ABGameMode.h" },
-		{ "ModuleRelativePath", "ABGameMode.h" },
+		{ "ModuleRelativePath", "Public/ABGameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
@@ -75,15 +75,15 @@ void EmptyLinkFunctionForGeneratedCodeABGameMode() {}
 		return AABGameMode::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AABGameMode);
-	struct Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABGameMode_h_Statics
+	struct Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABGameMode_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABGameMode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AABGameMode, AABGameMode::StaticClass, TEXT("AABGameMode"), &Z_Registration_Info_UClass_AABGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AABGameMode), 1914512231U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABGameMode_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AABGameMode, AABGameMode::StaticClass, TEXT("AABGameMode"), &Z_Registration_Info_UClass_AABGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AABGameMode), 2792159557U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABGameMode_h_335422510(TEXT("/Script/ArenaBattle"),
-		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_ABGameMode_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABGameMode_h_703198003(TEXT("/Script/ArenaBattle"),
+		Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArenaBattle_Source_ArenaBattle_Public_ABGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
