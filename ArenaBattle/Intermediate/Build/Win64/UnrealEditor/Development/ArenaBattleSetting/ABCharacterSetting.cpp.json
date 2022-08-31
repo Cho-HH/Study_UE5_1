@@ -1,0 +1,23 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattlesetting\\private\\abcharactersetting.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\arenabattleeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\development\\arenabattlesetting\\definitions.arenabattlesetting.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\source\\arenabattlesetting\\public\\abcharactersetting.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\assetregistry\\arfilter.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\arenabattle\\intermediate\\build\\win64\\unrealeditor\\inc\\arenabattlesetting\\abcharactersetting.generated.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.32.31326\\include\\cassert",
+            "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\assert.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -2,4 +2,8 @@
 
 
 #include "ABCharacterSetting.h"
+#include <cassert>
 
+UABCharacterSetting::UABCharacterSetting()
+{
+}

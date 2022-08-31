@@ -5,6 +5,7 @@
 #include "ArenaBattle.h"
 #include "Engine/DataTable.h"
 #include "Engine/GameInstance.h"
+#include "Engine/StreamableManager.h"
 #include "ABGameInstance.generated.h"
 
 /**
@@ -42,6 +43,7 @@ public:
 	virtual void Init() override;
 	FABCharacterData* getABCharacterData(int32 Level);
 
+	FStreamableManager mStreamMng;
 private:
 	UPROPERTY(EditAnywhere, Meta = (AllowPrivateAccess = true))
 		class UDataTable* mABCharacterTable;

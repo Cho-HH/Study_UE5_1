@@ -9,6 +9,8 @@
 #include "Components/WidgetComponent.h"
 #include "ABCharacterWidget.h"
 #include "ABAIController.h"
+#include "ABCharacterSetting.h"
+#include "ABGameInstance.h"
 
 #include <cassert>
 
@@ -66,6 +68,15 @@ AABCharacter::AABCharacter()
 
 	SetControlMode(mCurrentConotrol);
 	AttackEndComboState();
+
+	auto DefaultSetting = GetDefault<UABCharacterSetting>();
+	if (DefaultSetting->CharacterAssets.Num() > 0)
+	{
+		for (auto asset : DefaultSetting->CharacterAssets)
+		{
+			ABLOG(Warning, TEXT("Character Asset : %s"), *asset.ToString());
+		}
+	}
 }
 
 // Called when the game starts or when spawned
@@ -79,6 +90,20 @@ void AABCharacter::BeginPlay()
 	if (charWidget != nullptr)
 	{
 		charWidget->BindCharacterStat(mCharStat);
+	}
+
+	if (!IsPlayerControlled())
+	{
+		auto DefaultSetting = GetDefault<UABCharacterSetting>();
+		int32 randIdx = FMath::RandRange(0, DefaultSetting->CharacterAssets.Num() - 1);
+		mCharacterAssetToLoad = DefaultSetting->CharacterAssets[randIdx];
+
+		auto gameIns = Cast<UABGameInstance>(GetGameInstance());
+		if (gameIns != nullptr)
+		{
+			mAssetStreamingHandle = gameIns->mStreamMng.RequestAsyncLoad(mCharacterAssetToLoad, FStreamableDelegate::CreateUObject(this, &AABCharacter::OnAssetLoadCompleted));
+
+		}
 	}
 }
 
@@ -198,6 +223,16 @@ void AABCharacter::PutDownWeapon()
 
 	isHoldingWeapon = false;
 	curWeapon->Destroy();
+}
+
+void AABCharacter::OnAssetLoadCompleted()
+{
+	USkeletalMesh* assetLoaded = Cast<USkeletalMesh>(mAssetStreamingHandle->GetLoadedAsset());
+	mAssetStreamingHandle.Reset();
+	if (assetLoaded != nullptr)
+	{
+		GetMesh()->SetSkeletalMesh(assetLoaded);
+	}
 }
 
 void AABCharacter::UpDown(float NewAxisValue)

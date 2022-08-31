@@ -1,21 +1,20 @@
 ﻿  Using bundled DotNet SDK
   Log file: C:\Users\82106\AppData\Local\UnrealBuildTool\Log.txt
   Using 'git status' to determine working set for adaptive non-unity build (C:\Users\82106\Documents\Study_UE5_1).
-  Creating makefile for ArenaBattleEditor (no existing makefile)
   Building ArenaBattleEditor...
   Using Visual Studio 2022 14.32.31332 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [Adaptive Build] Excluded from ArenaBattle unity file: ABAIController.cpp, ABAnimInstance.cpp, ABCharacter.cpp, ABCharacterStatComponent.cpp, ABCharacterWidget.cpp, ABGameInstance.cpp, ABGameMode.cpp, ABPawn.cpp, ABPlayerController.cpp, ABWeapon.cpp, ArenaBattle.cpp, BTDecorator_IsInAttackRange.cpp, BTService_Detect.cpp, BTTaskNode_Attack.cpp, BTTaskNode_TurnToTarget.cpp, BTTask_FindPatrolPos.cpp, ItemBox.cpp
-  [Adaptive Build] Excluded from ArenaBattleSetting unity file: ArenaBattleSetting.cpp
+  [Adaptive Build] Excluded from ArenaBattle unity file: ABCharacter.cpp, ABGameInstance.cpp, ABSection.cpp
+  [Adaptive Build] Excluded from ArenaBattleSetting unity file: ABCharacterSetting.cpp
   Determining max actions to execute in parallel (6 physical cores, 12 logical cores)
     Executing up to 6 processes, one per physical core
-    Requested 1.5 GB free memory per action, 6.85 GB available: limiting max parallel actions to 4
-  Building 5 actions with 4 processes...
-  [1/5] Resource Default.rc2
-  [2/5] Compile ArenaBattleSetting.cpp
-  [3/5] Link UnrealEditor-ArenaBattleSetting.lib
-     C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattleSetting\UnrealEditor-ArenaBattleSetting.lib 라이브러리 및 C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattleSetting\UnrealEditor-ArenaBattleSetting.exp 개체를 생성하고 있습니다.
-  [4/5] Link UnrealEditor-ArenaBattleSetting.dll
-     C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattleSetting\UnrealEditor-ArenaBattleSetting.suppressed.lib 라이브러리 및 C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattleSetting\UnrealEditor-ArenaBattleSetting.suppressed.exp 개체를 생성하고 있습니다.
-  [5/5] WriteMetadata ArenaBattleEditor.target
-  Total time in Parallel executor: 1.47 seconds
-  Total execution time: 4.18 seconds
+    Requested 1.5 GB free memory per action, 7.33 GB available: limiting max parallel actions to 4
+  Building 4 actions with 4 processes...
+  [1/4] Compile ABSection.cpp
+C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Source\ArenaBattle\Private\ABSection.cpp(8): warning C5038: 데이터 멤버 'AABSection::mbNoBattle'은(는) 데이터 멤버 'AABSection::mCurState' 이후에 초기화됩니다.
+  [2/4] Link UnrealEditor-ArenaBattle.lib
+     C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.lib 라이브러리 및 C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.exp 개체를 생성하고 있습니다.
+  [3/4] Link UnrealEditor-ArenaBattle.dll
+     C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.suppressed.lib 라이브러리 및 C:\Users\82106\Documents\Study_UE5_1\ArenaBattle\Intermediate\Build\Win64\UnrealEditor\Development\ArenaBattle\UnrealEditor-ArenaBattle.suppressed.exp 개체를 생성하고 있습니다.
+  [4/4] WriteMetadata ArenaBattleEditor.target
+  Total time in Parallel executor: 9.58 seconds
+  Total execution time: 10.26 seconds

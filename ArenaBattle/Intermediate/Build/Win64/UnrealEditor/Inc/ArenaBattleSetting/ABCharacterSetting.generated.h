@@ -21,8 +21,10 @@ private: \
 	static void StaticRegisterNativesUABCharacterSetting(); \
 	friend struct Z_Construct_UClass_UABCharacterSetting_Statics; \
 public: \
-	DECLARE_CLASS(UABCharacterSetting, UObject, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/ArenaBattleSetting"), NO_API) \
-	DECLARE_SERIALIZER(UABCharacterSetting)
+	DECLARE_CLASS(UABCharacterSetting, UObject, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ArenaBattleSetting"), NO_API) \
+	DECLARE_SERIALIZER(UABCharacterSetting) \
+	static const TCHAR* StaticConfigName() {return TEXT("ArenaBattle");} \
+
 
 
 #define FID_ArenaBattle_Source_ArenaBattleSetting_Public_ABCharacterSetting_h_15_INCLASS \
@@ -30,13 +32,15 @@ private: \
 	static void StaticRegisterNativesUABCharacterSetting(); \
 	friend struct Z_Construct_UClass_UABCharacterSetting_Statics; \
 public: \
-	DECLARE_CLASS(UABCharacterSetting, UObject, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/ArenaBattleSetting"), NO_API) \
-	DECLARE_SERIALIZER(UABCharacterSetting)
+	DECLARE_CLASS(UABCharacterSetting, UObject, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ArenaBattleSetting"), NO_API) \
+	DECLARE_SERIALIZER(UABCharacterSetting) \
+	static const TCHAR* StaticConfigName() {return TEXT("ArenaBattle");} \
+
 
 
 #define FID_ArenaBattle_Source_ArenaBattleSetting_Public_ABCharacterSetting_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UABCharacterSetting(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API UABCharacterSetting(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UABCharacterSetting) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UABCharacterSetting); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UABCharacterSetting); \
@@ -48,8 +52,6 @@ public:
 
 
 #define FID_ArenaBattle_Source_ArenaBattleSetting_Public_ABCharacterSetting_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UABCharacterSetting(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UABCharacterSetting(UABCharacterSetting&&); \
@@ -57,7 +59,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UABCharacterSetting); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UABCharacterSetting); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UABCharacterSetting)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UABCharacterSetting)
 
 
 #define FID_ArenaBattle_Source_ArenaBattleSetting_Public_ABCharacterSetting_h_12_PROLOG

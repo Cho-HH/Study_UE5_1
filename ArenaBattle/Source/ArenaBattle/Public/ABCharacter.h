@@ -101,6 +101,8 @@ private:
 		float AttackRadius;
 
 	void PutDownWeapon();
+
+	void OnAssetLoadCompleted();
 private:
 	void UpDown(float NewAxisValue);
 	void LeftRight(float NewAxisValue);
@@ -120,4 +122,7 @@ private:
 	void AttackCheck();
 	virtual float TakeDamage(float DamageAmount, const FDamageEvent& DamageEvent, AController* 
 		EventInstigator, AActor* DamageCauser) override;
+
+	FSoftObjectPath mCharacterAssetToLoad = FSoftObjectPath(nullptr);
+	TSharedPtr<struct FStreamableHandle> mAssetStreamingHandle;
 };
