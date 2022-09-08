@@ -1,0 +1,20 @@
+﻿  Using bundled DotNet SDK
+  Log file: C:\Users\82106\AppData\Local\UnrealBuildTool\Log.txt
+  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\82106\Documents\Study_UE5_1).
+  Building testEditor...
+  Using Visual Studio 2022 14.32.31332 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  [Adaptive Build] Excluded from test unity file: test.cpp, testCharacter.cpp, testGameMode.cpp, testPlayerController.cpp
+  Determining max actions to execute in parallel (6 physical cores, 12 logical cores)
+    Executing up to 6 processes, one per physical core
+    Requested 1.5 GB free memory per action, 5.42 GB available: limiting max parallel actions to 3
+  Building 6 actions with 3 processes...
+  [1/6] Compile testGameMode.cpp
+  [2/6] Compile testCharacter.cpp
+  [3/6] Compile testPlayerController.cpp
+  [4/6] Link UnrealEditor-test.lib
+     C:\Users\82106\Documents\Study_UE5_1\test\Intermediate\Build\Win64\UnrealEditor\Development\test\UnrealEditor-test.lib 라이브러리 및 C:\Users\82106\Documents\Study_UE5_1\test\Intermediate\Build\Win64\UnrealEditor\Development\test\UnrealEditor-test.exp 개체를 생성하고 있습니다.
+  [5/6] Link UnrealEditor-test.dll
+     C:\Users\82106\Documents\Study_UE5_1\test\Intermediate\Build\Win64\UnrealEditor\Development\test\UnrealEditor-test.suppressed.lib 라이브러리 및 C:\Users\82106\Documents\Study_UE5_1\test\Intermediate\Build\Win64\UnrealEditor\Development\test\UnrealEditor-test.suppressed.exp 개체를 생성하고 있습니다.
+  [6/6] WriteMetadata testEditor.target
+  Total time in Parallel executor: 9.33 seconds
+  Total execution time: 10.44 seconds

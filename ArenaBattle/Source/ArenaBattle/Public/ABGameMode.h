@@ -15,9 +15,15 @@ class ARENABATTLE_API AABGameMode : public AGameModeBase
 	GENERATED_BODY()
 	
 public:
+	AABGameMode();
 	static AABGameMode* getInstance();
-	~AABGameMode();
+	~AABGameMode() = default;
+
+	void PostLogin(APlayerController* newPlayer) override;
+	void PostInitializeComponents() override;
+	void AddScore(class AABPlayerController* scoredPlayer);
 
 private:
-	AABGameMode();
+	UPROPERTY()
+	class AABGameState* mGameState;
 };

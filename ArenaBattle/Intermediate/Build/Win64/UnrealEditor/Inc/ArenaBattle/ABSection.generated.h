@@ -8,14 +8,29 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
+class UPrimitiveComponent;
+struct FHitResult;
 #ifdef ARENABATTLE_ABSection_generated_h
 #error "ABSection.generated.h already included, missing '#pragma once' in ABSection.h"
 #endif
 #define ARENABATTLE_ABSection_generated_h
 
 #define FID_ArenaBattle_Source_ArenaBattle_Public_ABSection_h_12_SPARSE_DATA
-#define FID_ArenaBattle_Source_ArenaBattle_Public_ABSection_h_12_RPC_WRAPPERS
-#define FID_ArenaBattle_Source_ArenaBattle_Public_ABSection_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_ArenaBattle_Source_ArenaBattle_Public_ABSection_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnKeyNPCDestroyed); \
+	DECLARE_FUNCTION(execOnGateBeginOverlap); \
+	DECLARE_FUNCTION(execOnTriggerBeginOverlap);
+
+
+#define FID_ArenaBattle_Source_ArenaBattle_Public_ABSection_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnKeyNPCDestroyed); \
+	DECLARE_FUNCTION(execOnGateBeginOverlap); \
+	DECLARE_FUNCTION(execOnTriggerBeginOverlap);
+
+
 #define FID_ArenaBattle_Source_ArenaBattle_Public_ABSection_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAABSection(); \

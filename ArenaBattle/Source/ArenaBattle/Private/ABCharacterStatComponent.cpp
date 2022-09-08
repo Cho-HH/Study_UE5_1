@@ -73,3 +73,8 @@ float UABCharacterStatComponent::GetHPRatio() const
 {
 	return mCurHP / mCurStatData->MaxHP;
 }
+
+int32 UABCharacterStatComponent::GetDropExp() const
+{
+	return mCurStatData->DropExp;
+}

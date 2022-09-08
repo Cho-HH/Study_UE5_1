@@ -29,6 +29,7 @@ public:
 	float GetAttack() const;
 	float GetCurHP() const;
 	float GetHPRatio() const;
+	int32 GetDropExp() const;
 
 	FOnHPIsZeroDelegate OnHPIsZero;
 	FOnHPChangeDelagate OnHPChange;

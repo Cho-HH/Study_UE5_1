@@ -45,6 +45,11 @@ public:
 	void Attack();
 	FOnAttackEndDelegate mOnAttackEnd;
 
+	void SetCharacterState(ECharacterState newState);
+	ECharacterState GetCharacterState() const;
+
+	int32 GetExp() const;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -125,4 +130,23 @@ private:
 
 	FSoftObjectPath mCharacterAssetToLoad = FSoftObjectPath(nullptr);
 	TSharedPtr<struct FStreamableHandle> mAssetStreamingHandle;
+
+	int32 mAssetIdx;
+
+	UPROPERTY(Transient, VisibleInstanceOnly, BlueprintReadOnly, Category = State, Meta = (AllowPrivateAccess = true))
+		ECharacterState mCurState;
+
+	UPROPERTY(Transient, VisibleInstanceOnly, BlueprintReadOnly, Category = State, Meta = (AllowPrivateAccess = true))
+		bool mbIsPlayer;
+
+	UPROPERTY()
+		class AABAIController* mAIController;
+
+	UPROPERTY()
+		class AABPlayerController* mPlayerController;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = State, Meta = (AllowPrivateAccess = true))
+		float mDeadTimer;
+
+	FTimerHandle DeadTimerHandle = {};
 };

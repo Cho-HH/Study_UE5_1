@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\82106\\documents\\study_ue5_1\\test2\\source\\test2\\test2.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\82106\\documents\\study_ue5_1\\test2\\intermediate\\build\\win64\\test2editor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\82106\\documents\\study_ue5_1\\test2\\intermediate\\build\\win64\\unrealeditor\\development\\test2\\definitions.test2.h",
+            "c:\\users\\82106\\documents\\study_ue5_1\\test2\\source\\test2\\test2.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

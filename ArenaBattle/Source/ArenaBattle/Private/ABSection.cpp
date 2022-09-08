@@ -2,11 +2,17 @@
 
 
 #include "ABSection.h"
+#include "ABCharacter.h"
+#include "ItemBox.h"
+#include "ABPlayerController.h"
+#include "ABGameMode.h"
 
 // Sets default values
 AABSection::AABSection()
-	: mbNoBattle(true)
+	: mbNoBattle(false)
 	, mCurState(ESectionState::READY)
+	, mEnemySpawnTime(2.0f)
+	, mItemBoxSpawnTime(5.0f)
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
@@ -45,8 +51,13 @@ AABSection::AABSection()
 			newGateTrigger->SetRelativeLocation(FVector(70.0f, 0.0f, 250.0f));
 			newGateTrigger->SetCollisionProfileName(TEXT("ABTrigger"));
 			mGateTriggers.Add(newGateTrigger);
+
+			newGateTrigger->OnComponentBeginOverlap.AddDynamic(this, &AABSection::OnGateBeginOverlap);
+			newGateTrigger->ComponentTags.Add(gateSocket);
 		}
 	}
+
+	mTrigger->OnComponentBeginOverlap.AddDynamic(this, &AABSection::OnTriggerBeginOverlap);
 }
 
 // Called when the game starts or when spawned
@@ -88,6 +99,11 @@ void AABSection::SetState(ESectionState newState)
 			gateTrigger->SetCollisionProfileName(TEXT("NoCollision"));			
 		}
 		OperateGates(false);
+		GetWorld()->GetTimerManager().SetTimer(SpawnNPCTimerHandle, FTimerDelegate::CreateUObject(this, &AABSection::OnNPCSpawn), mEnemySpawnTime, false);
+		GetWorld()->GetTimerManager().SetTimer(SpawnItemBoxTimerHandle, FTimerDelegate::CreateLambda([this]() {
+			FVector2D RandXY = FMath::RandPointInCircle(600.0f);
+			GetWorld()->SpawnActor<AItemBox>(GetActorLocation() + FVector(RandXY, 30.0f), FRotator::ZeroRotator);
+			}), mItemBoxSpawnTime, false);
 		break;
 	case ESectionState::COMPLETE:
 		mTrigger->SetCollisionProfileName(TEXT("NoCollision"));
@@ -111,5 +127,62 @@ void AABSection::OperateGates(bool bOpen)
 	{
 		gate->SetRelativeRotation(bOpen ? FRotator(0.0f, -90.0f, 0.0f) : FRotator::ZeroRotator);
 	}
+}
+
+void AABSection::OnNPCSpawn()
+{
+	GetWorld()->GetTimerManager().ClearTimer(SpawnNPCTimerHandle);
+	auto keyNPC = GetWorld()->SpawnActor<AABCharacter>(GetActorLocation() + FVector::UpVector * 88.0f, FRotator::ZeroRotator);
+	if (keyNPC != nullptr)
+	{
+		keyNPC->OnDestroyed.AddDynamic(this, &AABSection::OnKeyNPCDestroyed);
+	}
+}
+
+void AABSection::OnGateBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	ABCHECK(OverlappedComponent->ComponentTags.Num() == 1);
+	FName componentTag = OverlappedComponent->ComponentTags[0];
+	FName socketName = FName(componentTag.ToString().Left(2));
+	if (!mMesh->DoesSocketExist(socketName))
+	{
+		return;
+	}
+
+	FVector newLocation = mMesh->GetSocketLocation(socketName);
+
+	TArray<FOverlapResult> overlapResults;
+	FCollisionQueryParams params(NAME_None, false, this);
+	FCollisionObjectQueryParams objParams(FCollisionObjectQueryParams::InitType::AllObjects);
+	bool result = GetWorld()->OverlapMultiByObjectType(
+		overlapResults,
+		newLocation,
+		FQuat::Identity,
+		objParams,
+		FCollisionShape::MakeSphere(775.0f),
+		params
+	);
+
+	if (!result)
+	{
+		auto newSection = GetWorld()->SpawnActor<AABSection>(newLocation, FRotator::ZeroRotator);
+	}
+}
+
+void AABSection::OnTriggerBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (mCurState == ESectionState::READY)
+	{
+		SetState(ESectionState::BATTLE);
+	}
+}
+
+void AABSection::OnKeyNPCDestroyed(AActor* destroyedActor)
+{
+	auto character = Cast<AABCharacter>(destroyedActor);
+	auto playerController = Cast<AABPlayerController>(character->LastHitBy);
+	auto gameMode = Cast<AABGameMode>(GetWorld()->GetAuthGameMode());
+	gameMode->AddScore(playerController);
+	SetState(ESectionState::COMPLETE);
 }
 
